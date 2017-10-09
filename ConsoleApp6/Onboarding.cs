@@ -41,7 +41,6 @@ namespace OnboardingExperience
         static bool AskBoolQuestion(string question)
         {
             var hasAnsweredCorrectly = false;
-            var responseBool = false;
 
             while (!hasAnsweredCorrectly)
             {
@@ -49,53 +48,32 @@ namespace OnboardingExperience
 
                 if (response == "y")
                 {
-                    responseBool = true;
                     hasAnsweredCorrectly = true;
                 }
-                else if (response == "n")
+                else
                 {
-                    responseBool = false;
-                    hasAnsweredCorrectly = false;
-                }
-
-                if (response == "n")
-                    hasAnsweredCorrectly = false;
-                        
                     Console.Write("ACCESS DENIED! WRONG INPUT");
-
+                }
             }
 
-            return responseBool;
+            return hasAnsweredCorrectly;
         }
 
         static string AskPinNumber(string question, int length)
         {
             string numberString = null;
             while (numberString == null)
-        
-
             {
                 var response= AskQuestion(question);
 
                 if (response.Length == length && Int32.TryParse(response, out int _))
                 {            
-            
-                  numberString = response; 
-                
+                    numberString = response;
                 }
             }
 
-                    return numberString;
+            return numberString;
                     
         }
-                
-                                 
-
-
-        
-
-
     }
-
-    
 }
